@@ -101,7 +101,7 @@ module.exports = {
 
     [{
       author: 'Evan Willum',
-      album_id: 10,
+      album_id: 9,
       message: 'Good album, but I liked the first one.',
     }].map(saveComment);
   },
