@@ -17,16 +17,18 @@ Using the provided API endpoints, construct an application that includes the fea
 
 - display links to all of the artists returned by the API
 - click on an artist to show a header with the artist's name and their albums
-
-### Nice to Haves
-
-- controls to sort the artist list ascending/descending by artist name
-- paginate the album list to show two per page with pagination links
 - clicking on an album name will show a detail page for that album
 - album detail page should show a list of comments with the most recent at the top
+- home page lists all of the years for which we have albums, with a count of albums per year
+- home page lists 5 most popular artists (by sum of albums sold)
+
+### Nice to Haves
+- clicking on a year on the home page shows albums that were released that year organized by artist
+- home page lists all known artist locations
+- clicking on a location will show artists at that location organized by last name A-Z
 - provide a form that will save a comment on an album
 - validate that the form is filled in before allowing submission
-- suport deleting comments
+- support deleting comments
 
 ## API
 
