@@ -22,10 +22,11 @@ Using the provided API endpoints, construct an application that includes the fea
 - home page lists all of the years for which we have albums, with a count of albums per year
 - home page lists 5 most popular artists (by sum of albums sold)
 
-### Nice to Haves
+### Nice to Haves (any one of these, no particular order)
 - clicking on a year on the home page shows albums that were released that year organized by artist
 - home page lists all known artist locations
 - clicking on a location will show artists at that location organized by last name A-Z
+- the show page for an artist displays artists that are nearby (same location)
 - provide a form that will save a comment on an album
 - validate that the form is filled in before allowing submission
 - support deleting comments

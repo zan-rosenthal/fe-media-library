@@ -1,109 +1,61 @@
+var faker = require('faker');
+
 module.exports = {
   seed: function(database) {
-    // Seed artists
-    var saveArtist = function(data) {
-      database.save('artist', data);
-    };
+    var numberOfArtists = 100;
+    var albumsPerArtist = 20;
+    var commentsPerAlbum = 10;
+    var cities = ['Chicago', 'New York', 'Los Angeles', 'Philadelphia', 'Denver', 'Miami', 'San Francisco', 'Seattle'];
+    var city = -1;
 
-    [{
-      name: 'Some Artist',
-      album_ids: [1, 2],
-      based_in: 'Los Angeles',
-      founding_year: 2001,
-    }, {
-      name: 'Popular Musician',
-      album_ids: [3, 4, 5],
-      based_in: 'Detroit',
-      founding_year: 1781,
-    }, {
-      name: 'Backup Singer',
-      album_ids: [6, 7, 8],
-      based_in: 'Cincinnati',
-      founding_year: 1952,
-    }, {
-      name: 'New Age Thing',
-      album_ids: [9, 10],
-      based_in: 'London',
-      founding_year: 1991,
-    }].map(saveArtist);
+    var artists = [];
+    var albums = [];
+    var nowDate = new Date();
 
-    // albums
-    var saveAlbum = function(data) {
-      database.save('album', data);  
-    };
+    function nextCity() {
+      city = city + 1 >= cities.length ? 0 : city + 1;
+      return cities[city];
+    }
 
-    [{
-      name: 'Mega Album',
-      year: 2001,
-      artist_id: 1,
-      total_sold: 10001,
-      comment_ids: [],
-    }, {
-      name: 'Bigger Album',
-      year: 2002,
-      artist_id: 1,
-      total_sold: 10002,
-      comment_ids: [],
-    }, {
-      name: 'Hits And Stuff',
-      year: 1800,
-      artist_id: 2,
-      total_sold: 13,
-      comment_ids: [],
-    }, {
-      name: 'Symphony 2.1',
-      year: 1801,
-      artist_id: 2,
-      total_sold: 78975984,
-      comment_ids: [],
-    }, {
-      name: 'Classical Dance Music',
-      year: 1802,
-      artist_id: 2,
-      total_sold: 0,
-      comment_ids: [],
-    }, {
-      name: 'My Boss\'s Songs',
-      year: 1953,
-      artist_id: 3,
-      total_sold: 20,
-      comment_ids: [],
-    }, {
-      name: 'Music Someone Wrote',
-      year: 1954,
-      artist_id: 3,
-      total_sold: 2001,
-      comment_ids: [],
-    }, {
-      name: 'Testing 123',
-      year: 1955,
-      artist_id: 3,
-      total_sold: 52,
-      comment_ids: [],
-    }, {
-      name: 'Ska Blues Fusion',
-      year: 1991,
-      artist_id: 4,
-      total_sold: 71,
-      comment_ids: [],
-    }, {
-      name: 'Reggae Ambient',
-      year: 1992,
-      artist_id: 4,
-      total_sold: 9849574,
-      comment_ids: [1],
-    }].map(saveAlbum);
+    for(var i = 0; i < numberOfArtists; i++) {
+      var artist = {
+        name: faker.name.firstName() + ' ' + faker.name.lastName(),
+        album_ids: [],
+        based_in: nextCity(),
+        founding_year: faker.date.past(100).getFullYear()
+      };
 
-    // comments
-    var saveComment = function(data) {
-      database.save('comment', data);
-    };
+      artists.push(database.save('artist', artist));
+    }
 
-    [{
-      author: 'Evan Willum',
-      album_id: 9,
-      message: 'Good album, but I liked the first one.',
-    }].map(saveComment);
+    artists.forEach(function(artist) {
+      for (var i = 0; i < albumsPerArtist; i++) {
+        var album = {
+          artist_id: artist.id,
+          name: faker.company.catchPhrase(),
+          year: faker.date.between(artist.founding_year, nowDate).year,
+          total_sold: faker.random.number({min: 1000, max: 99999999}),
+          comment_ids: []
+        };
+
+        album = database.save('album', album);
+        artist.album_ids.push(album.id);
+        albums.push(album);
+      }
+    });
+
+    albums.forEach(function(album) {
+      for (var i = 0; i < commentsPerAlbum; i++) {
+        var comment = {
+          album_id: album.id,
+          author: faker.name.firstName() + ' ' + faker.name.lastName(),
+          message: faker.lorem.paragraph()
+        };
+
+        comment = database.save('comment', comment);
+        album.comment_ids.push(comment.id);
+      }
+    });
   },
 };
 
