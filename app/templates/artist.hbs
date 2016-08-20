@@ -7,14 +7,5 @@
       <div class="totalSold">Total Albums Sold: {{model.totalAlbumsSold}}</div>
     </div>
   </header>
-  <ul class="collection scroll-list albums left">
-      {{#each model.albums as |album|}}
-      <li class="collection-item">
-        {{#link-to "album" album}}
-          {{album.name}}
-        {{/link-to}}
-      </li>
-      {{/each}}
-  </ul>
-
+  {{collection-list model=model.albums class="albums"}}
 </div>

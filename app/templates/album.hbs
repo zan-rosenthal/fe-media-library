@@ -5,11 +5,5 @@
       <div class="totalSold">Total Sold: {{model.totalSold}}</div>
     </div>
   </header>
-  <ul class="collection scroll-list comments container">
-      {{#each model.comments as |comment|}}
-      <li class="collection-item">
-        {{comment.message}}
-      </li>
-      {{/each}}
-  </ul>
+  {{collection-list model=model.comments class="comments"}}
 </div>

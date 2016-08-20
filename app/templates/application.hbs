@@ -3,20 +3,12 @@
   <div class="row">
     <div class="sidebar col s2">
       <h2>Artists</h2>
-      <ul class="collection artists scroll-list">
-          {{#each model as |artist|}}
-          <li class="collection-item">
-            {{#link-to "artist" artist}}
-              {{artist.name}}
-            {{/link-to}}
-          </li>
-          {{/each}}
-        </ul>
-  </div>
-  <div class="content col s10">
-    <div class="left">
-      {{outlet}}
+      {{collection-list model=model item-detail=artist-detail class="artists"}}
+    </div>
+    <div class="content col s10">
+      <div class="left">
+        {{outlet}}
+      </div>
     </div>
   </div>
-</div>
 </div>

@@ -6,5 +6,6 @@ export default Model.extend({
   author: attr('string'),
   message: attr('string'),
   updatedAt: attr('date'),
-  album: belongsTo('album', {async:true})
+  album: belongsTo('album', {async:true}),
+  componentName: 'comment-detail'
 });
