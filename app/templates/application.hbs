@@ -1,22 +1,22 @@
 <h2 id="title" class="center-align">Media Catalog</h2>
 <div>
-    <div class="row">
-      <div class="sidebar col s3">
-        <h2>Artists</h2>
-        <ul class="collection artist-list">
-            {{#each model.artists as |artist|}}
-            <li class="collection-item">
-              {{#link-to "artist" artist}}
-                {{artist.name}}
-              {{/link-to}}
-            </li>
-            {{/each}}
+  <div class="row">
+    <div class="sidebar col s2">
+      <h2>Artists</h2>
+      <ul class="collection artists scroll-list">
+          {{#each model as |artist|}}
+          <li class="collection-item">
+            {{#link-to "artist" artist}}
+              {{artist.name}}
+            {{/link-to}}
+          </li>
+          {{/each}}
         </ul>
-    </div>
-    <div class="content col s9">
-      <div class="container">
-        {{outlet}}
-      </div>
+  </div>
+  <div class="content col s10">
+    <div class="left">
+      {{outlet}}
     </div>
   </div>
+</div>
 </div>

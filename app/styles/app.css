@@ -1,3 +1,16 @@
-#artist-list{
-  
+.artists{
+  height: 80%;
+}
+
+.albums{
+  height: 50%;
+}
+
+.comments {
+  height: 50%;
+}
+
+.scroll-list{
+  position: absolute;
+  overflow:scroll;
 }

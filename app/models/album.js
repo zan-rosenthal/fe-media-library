@@ -4,8 +4,7 @@ const { attr, belongsTo, hasMany, Model} = DS;
 
 export default Model.extend({
   name: attr('string'),
-  year: attr('numer'),
   totalSold: attr('number'),
-  artist: belongsTo('aritst', {async: true}),
-  comments: hasMany('comment', {async: true})
+  comments: hasMany('comment', {async: true}),
+  artist: belongsTo('artist', {async: true})
 });

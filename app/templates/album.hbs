@@ -1,0 +1,15 @@
+<div class="container">
+  <header>
+    <h3 class="title">{{model.name}}</h3>
+    <div class="row">
+      <div class="totalSold">Total Sold: {{model.totalSold}}</div>
+    </div>
+  </header>
+  <ul class="collection scroll-list comments container">
+      {{#each model.comments as |comment|}}
+      <li class="collection-item">
+        {{comment.message}}
+      </li>
+      {{/each}}
+  </ul>
+</div>

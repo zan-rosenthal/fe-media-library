@@ -5,6 +5,6 @@ const { attr, belongsTo, Model} = DS;
 export default Model.extend({
   author: attr('string'),
   message: attr('string'),
-  updatedAt: attr('data'),
-  albums: belongsTo('album', {async:true})
+  updatedAt: attr('date'),
+  album: belongsTo('album', {async:true})
 });
