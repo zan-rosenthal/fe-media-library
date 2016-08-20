@@ -1,9 +1,8 @@
 <div class="container">
   <header>
     <h3 class="title">{{model.name}}</h3>
-    <div class="row">
-      <div class="totalSold">Total Sold: {{model.totalSold}}</div>
-    </div>
+    <p class="totalSold">Total Sold: {{model.totalSold}}</p>
+    <p class="year">Year: {{model.year}}</p>  
   </header>
-  {{collection-list model=model.comments class="comments"}}
+  {{collection-list model=model.comments class="comments" sortBy="author"}}
 </div>

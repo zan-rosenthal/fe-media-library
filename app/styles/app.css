@@ -14,3 +14,7 @@
   position: absolute;
   overflow:scroll;
 }
+
+.stretch-right{
+  width: 65%;
+}

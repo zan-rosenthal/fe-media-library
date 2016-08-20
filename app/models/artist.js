@@ -11,6 +11,6 @@ export default Model.extend({
   updatedAt: attr('date'),
   albums: hasMany('album', {async: true}),
   totalByAlbum: computed.mapBy('albums', 'totalSold'),
-  totalAlbumsSold: computed.sum('totalByAlbum'),
+  totalSold: computed.sum('totalByAlbum'),
   componentName: 'artist-detail'
 });
