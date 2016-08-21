@@ -1,0 +1,6 @@
+<div class="container">
+  <header>
+    <h3 class="title">Artists Located In: {{model.firstObject.based_in}}</h3>
+  </header>
+  {{collection-list model=model componentName="artist-detail" class="albums stretch-right"}}
+</div>

@@ -2,7 +2,7 @@
   <header>
     <h3 class="title">{{model.name}}</h3>
     <p class="totalSold">Total Sold: {{model.totalSold}}</p>
-    <p class="year">Year: {{model.year}}</p>  
+    <p class="year">Year: {{model.year}}</p>
   </header>
-  {{collection-list model=model.comments class="comments" sortBy="author"}}
+  {{collection-list model=model.comments componentName="comment-detail" class="comments" sortBy="author"}}
 </div>

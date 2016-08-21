@@ -1,14 +1,19 @@
 <h2 id="title" class="center-align">Media Catalog</h2>
+<nav>
+   <div class="nav-wrapper blue-grey">
+     <ul id="nav-mobile" class="center">
+       <h2>{{#link-to 'index'}}Home{{/link-to}}</h2>
+     </ul>
+   </div>
+ </nav>
 <div>
   <div class="row">
-    <div class="sidebar col s2">
+    <div class=" col s2">
       <h2>Artists</h2>
-      {{collection-list model=model item-detail=artist-detail class="artists"}}
+      {{collection-list model=model.artists componentName="artist-detail" class="artists"}}
     </div>
-    <div class="content col s10">
-      <div>
+    <div class="col s9 push-s1">
         {{outlet}}
-      </div>
     </div>
   </div>
 </div>

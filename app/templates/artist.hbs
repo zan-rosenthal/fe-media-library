@@ -5,5 +5,5 @@
       <div class="location">Location: {{model.based_in}}</div>
       <div class="totalSold">Total Albums Sold: {{model.totalSold}}</div>
   </header>
-  {{collection-list model=model.albums sortBy="year" class="albums stretch-right"}}
+  {{collection-list model=model.albums componentName="album-detail" sortBy="year" class="albums stretch-right"}}
 </div>

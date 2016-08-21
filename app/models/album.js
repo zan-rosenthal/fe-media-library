@@ -7,6 +7,5 @@ export default Model.extend({
   year: attr('number'),
   totalSold: attr('number'),
   comments: hasMany('comment', {async: true}),
-  artist: belongsTo('artist', {async: true}),
-  componentName: 'album-detail'
+  artist: belongsTo('artist', {async: true})
 });

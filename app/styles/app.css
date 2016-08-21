@@ -1,20 +1,16 @@
-.artists{
-  height: 80%;
-}
 
-.albums{
-  height: 50%;
-}
-
-.comments {
-  height: 50%;
-}
-
-.scroll-list{
-  position: absolute;
-  overflow:scroll;
-}
 
 .stretch-right{
   width: 65%;
+}
+
+.value-list{
+  width: 40%;
+}
+
+
+.scroll-list{
+  max-height: 40rem;
+  position: absolute;
+  overflow:scroll;
 }

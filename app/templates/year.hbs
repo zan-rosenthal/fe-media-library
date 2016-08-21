@@ -1,0 +1,6 @@
+<div class="container">
+  <header>
+    <h3 class="title">Albums Recorded in: {{model.firstObject.year}}</h3>
+  </header>
+  {{collection-list model=model componentName="album-detail" class="albums stretch-right"}}
+</div>
